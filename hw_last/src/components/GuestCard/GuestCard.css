@@ -1,0 +1,29 @@
+.guest-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    background: #111116;
+    border: 1px solid #2a2a33;
+    border-radius: 12px;
+}
+
+.guest-card__name {
+    font-size: 16px;
+}
+
+.guest-card__delete-btn {
+    width: 35px;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid #3a3a45;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.guest-card__delete-btn:hover {
+    transform: scale(1.08);
+    background: #ff3b3b;
+}
