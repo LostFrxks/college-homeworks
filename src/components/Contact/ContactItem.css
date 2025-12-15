@@ -1,0 +1,34 @@
+.contact-item{
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgb(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item__info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.contact-item__delete{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgb(0,0,0,0.3);
+    background-color: rgb(201, 0, 0);
+    color: white;
+    font-size: 15px;
+    transition: all 0.5s ease;
+}
+
+.contact-item__delete:hover{
+    opacity: 0.85;
+    transform: scale(1.01);
+}
