@@ -21,7 +21,7 @@ function App() {
   }
 
   function deleteGuest(id) {
-    const filtered = guests.filter((g) => g.id!== id);
+    const filtered = guests.filter((g) => g.id !== id);
     setGuests(filtered);
   }
 

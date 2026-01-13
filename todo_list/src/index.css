@@ -1,0 +1,356 @@
+/* ===== Cyberpunk ToDo — “будущее уже здесь” ===== */
+
+/* фон страницы */
+body {
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(255, 0, 204, 0.18), transparent 55%),
+              radial-gradient(900px 700px at 80% 20%, rgba(0, 255, 255, 0.16), transparent 55%),
+              radial-gradient(900px 700px at 40% 90%, rgba(140, 0, 255, 0.14), transparent 60%),
+              linear-gradient(135deg, #070812, #04050d 60%, #070812);
+  color: #e9f7ff;
+  overflow-x: hidden;
+}
+
+/* root — центруем app по красоте */
+#root {
+  min-height: 85.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  flex-direction: column;
+}
+
+/* общий контейнер без изменения JSX — используем :has() */
+#root:has(.todo-form) {
+  position: relative;
+}
+
+/* “неоновая дымка” позади */
+#root:has(.todo-form)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 2px,
+      transparent 6px
+    );
+  opacity: 0.35;
+  mix-blend-mode: screen;
+}
+
+/* Главная карточка — без отдельного div, просто стилим “контент root” */
+#root > * {
+  width: min(720px, 100%);
+}
+
+/* Форма: стеклянная панель */
+.todo-form {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 255, 255, 0.08) inset;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* неоновый кант */
+.todo-form::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  padding: 1px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(0,255,255,0.0),
+    rgba(0,255,255,0.55),
+    rgba(255,0,204,0.55),
+    rgba(140,0,255,0.55),
+    rgba(0,255,255,0.55),
+    rgba(0,255,255,0.0)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.85;
+  filter: blur(0.2px);
+}
+
+/* input — “терминал будущего” */
+.todo-form input {
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 255, 0.18);
+  background: rgba(6, 10, 20, 0.55);
+  color: #e9f7ff;
+  padding: 0 16px;
+  outline: none;
+  letter-spacing: 0.2px;
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 204, 0.06) inset,
+    0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.todo-form input::placeholder {
+  color: rgba(233, 247, 255, 0.55);
+}
+
+.todo-form input:focus {
+  transform: translateY(-1px);
+  border-color: rgba(0, 255, 255, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(0, 255, 255, 0.18),
+    0 0 0 1px rgba(255, 0, 204, 0.10) inset,
+    0 14px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* кнопка Add Task — неоновый акцент */
+.todo-form button[type="submit"] {
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 0, 204, 0.35);
+  background:
+    linear-gradient(180deg, rgba(255,0,204,0.55), rgba(140,0,255,0.45));
+  color: #081018;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(255, 0, 204, 0.25);
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+}
+
+.todo-form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 0, 204, 0.35);
+}
+
+.todo-form button[type="submit"]:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+/* Сообщение “No tasks available” — стиль кибер */
+#root > p {
+  margin-top: 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(6, 10, 20, 0.45);
+  border: 1px dashed rgba(0, 255, 255, 0.25);
+  color: rgba(233, 247, 255, 0.8);
+  text-align: center;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+#root > p::before {
+  content: "⚠";
+  margin-right: 10px;
+  color: rgba(0, 255, 255, 0.95);
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.55);
+}
+
+/* Список */
+.todo-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+/* Элемент задачи */
+.todo-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 14px 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 255, 255, 0.06) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+  position: relative;
+}
+
+/* лёгкое “сканирование” */
+.todo-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.08),
+    transparent
+  );
+  opacity: 0;
+  transform: translateX(-20%);
+  transition: opacity 200ms ease, transform 400ms ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 255, 255, 0.28);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.6),
+    0 0 26px rgba(0, 255, 255, 0.10);
+}
+
+.todo-item:hover::after {
+  opacity: 1;
+  transform: translateX(20%);
+}
+
+/* текст задачи */
+.todo-item span {
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(233, 247, 255, 0.92);
+  letter-spacing: 0.2px;
+  user-select: none;
+  padding-right: 8px;
+}
+
+/* Если задача выполнена — зачёркивание и “потухание” */
+.todo-item:has(button:first-of-type:contains("Undo")) span {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* На чистом CSS нельзя надёжно определить completed по тексту кнопки во всех браузерах.
+   Поэтому делаем универсально: когда completed=true — React уже меняет текст кнопки на "Undo",
+   но селектор :contains не стандарт. Тогда сделаем визуальный эффект на hover+кнопку. */
+
+/* Кнопки */
+.todo-item button {
+  height: 40px;
+  border-radius: 14px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(6, 10, 20, 0.55);
+  color: rgba(233, 247, 255, 0.9);
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  font-weight: 700;
+}
+
+.todo-item button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 255, 255, 0.35);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.14);
+}
+
+/* Первая кнопка (Done/Undo) — бирюзовый неон */
+.todo-item button:first-of-type {
+  border-color: rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.10);
+}
+
+.todo-item button:first-of-type:hover {
+  filter: brightness(1.08);
+}
+
+/* Delete — розовый “опасность” */
+.todo-item button:last-of-type {
+  border-color: rgba(255, 0, 204, 0.22);
+  box-shadow: 0 0 16px rgba(255, 0, 204, 0.10);
+}
+
+.todo-item button:last-of-type:hover {
+  border-color: rgba(255, 0, 204, 0.45);
+  box-shadow: 0 0 22px rgba(255, 0, 204, 0.18);
+}
+
+/* адаптив */
+@media (max-width: 520px) {
+  .todo-form {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-form button[type="submit"] {
+    width: 100%;
+  }
+
+  .todo-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .todo-item button {
+    width: 100%;
+  }
+}
+
+.todo-item.is-done .todo-text {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* кнопка Done */
+.status-btn.done {
+  border-color: rgba(0, 255, 255, 0.35);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.16);
+}
+
+/* кнопка Undo (когда completed=true) — меняем стиль */
+.status-btn.undo {
+  border-color: rgba(255, 255, 0, 0.35);
+  box-shadow: 0 0 22px rgba(255, 255, 0, 0.18);
+  filter: brightness(1.05);
+}
+
+/* Зачёркивание + “приглушение”, когда completed=true */
+.todo-item.is-done .todo-text {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* Кнопка Done */
+.todo-item .status-btn.done {
+  border-color: rgba(0, 255, 255, 0.45);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.18);
+}
+
+/* Кнопка Undo */
+.todo-item .status-btn.undo {
+  border-color: rgba(255, 255, 0, 0.45);
+  box-shadow: 0 0 22px rgba(255, 255, 0, 0.18);
+}
+
+
+.input1:hover{
+  transform: rotate(100000000deg);
+  animation: widthPulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes widthPulse{
+  from { width: 50px; }  /* меньше */
+  to   { width: 100%; }  /* больше */
+}
