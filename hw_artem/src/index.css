@@ -1,0 +1,108 @@
+﻿:root {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  color: #1f2937;
+  background-color: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.users-page,
+.user-details {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.users-page__title,
+.user-details__title {
+  margin: 0 0 18px;
+  transition: all 10s ease;
+}
+
+.users-page__title:hover{
+  color: red;
+  transform: scale(10);
+}
+
+.users-page__status,
+.user-details__status {
+  margin: 12px 0;
+}
+
+.users-page__status--error, .user-details__status--error {
+  color: #b91c1c;
+}
+
+.users-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.user-card {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.user-card__name {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.user-card__field {
+  margin: 6px 0;
+  word-break: break-word;
+}
+
+.user-card__label,
+.user-details__label {
+  font-weight: 700;
+}
+
+.user-card__button,
+.user-details__back {
+  display: inline-block;
+  margin-top: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2563eb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: background-color 0.2s ease;
+}
+
+.user-card__button:hover,
+.user-details__back:hover {
+  background-color: #1d4ed8;
+}
+
+.user-details__card {
+  margin-top: 14px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.user-details__item {
+  margin: 8px 0;
+}
