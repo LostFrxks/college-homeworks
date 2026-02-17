@@ -1,0 +1,136 @@
+﻿.product-details {
+  min-height: 100vh;
+  padding: 32px 16px 40px;
+}
+
+.product-details__container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.product-details__back {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #2d6be2;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.5s ease;
+}
+
+.product-details__back:hover {
+  opacity: 0.9;
+}
+
+.product-details__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-details__image-wrap {
+  background: #f4f4f4;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.product-details__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: contain;
+}
+
+.product-details__title {
+  font-size: 36px;
+}
+
+.product-details__description {
+  margin: 0 0 16px;
+  color: #555;
+  line-height: 1.4;
+  font-size: 18px;
+}
+
+.product-details__price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.product-details__price {
+  color: #2d6be2;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.product-details__discount {
+  background: #e73434;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.product-details__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-details__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #ececec;
+  font-size: 18px;
+}
+
+
+
+
+.product-details__availability {
+  color: #0dbd74;
+}
+
+.product-details__status {
+  font-size: 22px;
+}
+
+.product-details__status--error {
+  color: #df2222;
+}
+.product-details__discount {
+  border: none;
+  cursor: pointer;
+  transition: all 10s cubic-bezier(1, 1.94, 0,-0.66);
+}
+
+.product-details__discount:hover{
+  transform: rotate(1800deg);
+}
+
+.product-details__egg {
+  width: 200px;
+  margin: 8px 0 12px;
+  border-radius: 8px;
+}
+
+
+
