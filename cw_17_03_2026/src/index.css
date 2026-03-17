@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+#root {
+  padding: 40px 0;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #666;
+}
+
+.filter-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.filter-box label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.filter-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.filter-box input:focus {
+  border-color: #222;
+}
+
+.users-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.user-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.67);
+  transform: translateY(-4px);
+}
+
+.user-card h2 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.user-card p {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.user-card span {
+  font-weight: 700;
+}
+
+.status-message {
+  width: 900px;
+  margin: 80px auto;
+  text-align: center;
+  font-size: 24px;
+}
