@@ -1,1 +1,0 @@
-Windows project commands:\n- Install deps: `npm install`\n- Start dev server: `npm run dev`\n- Production build: `npm run build`\n- Preview build: `npm run preview`\nUseful shell commands on Windows PowerShell: `Get-ChildItem`, `Get-Content`, `Select-String`, `npm`, `git`.

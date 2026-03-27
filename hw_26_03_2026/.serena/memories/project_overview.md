@@ -1,1 +1,0 @@
-Minimal React + Vite homework app for working with a users list from https://dummyjson.com/users. App uses custom hooks (useFetch, useDebounce), Context API (UserContext), a users page, and a UserCard component with simple CSS styling using BEM naming. Main source structure: src/hooks, src/context, src/components/UserCard, src/pages, src/styles.
