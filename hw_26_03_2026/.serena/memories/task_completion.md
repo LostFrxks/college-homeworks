@@ -1,0 +1,1 @@
+After changes, run `npm run build` to verify the project compiles successfully. If dependencies are missing, run `npm install` first.

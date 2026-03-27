@@ -1,0 +1,48 @@
+.users-page {
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.users-page__container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.users-page__title {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.users-page__input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.users-page__input:focus {
+  border-color: #777777;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.067);
+}
+
+.users-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.users-page__status {
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #444444;
+}
+
+.users-page__status--error {
+  color: #b42318;
+}

@@ -1,0 +1,1 @@
+Project uses simple React with JavaScript and JSX, no TypeScript. Components and context are function-based. Custom hooks live in `src/hooks`. Styling is plain CSS with BEM-style class names. Keep implementations straightforward and student-level, avoid unnecessary abstractions or complex conditions.
