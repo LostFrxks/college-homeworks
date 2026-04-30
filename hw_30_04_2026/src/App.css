@@ -1,0 +1,78 @@
+.app {
+  width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.0867);
+}
+
+.app h1 {
+  margin: 0 0 20px;
+  color: #333333;
+  font-size: 32px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1567);
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-card {
+  padding: 14px;
+  border: 1px solid #eeeeee;
+  border-radius: 6px;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.user-card:hover {
+  background: #f1f7ff;
+  border-color: #007bff;
+}
+
+.user-card p {
+  margin: 0 0 5px;
+  color: #222222;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-card span {
+  color: #666666;
+  font-size: 14px;
+}
+
+.status {
+  margin: 0;
+  color: #555555;
+  font-size: 16px;
+}
+
+.error {
+  margin: 0;
+  padding: 12px;
+  color: #b00020;
+  background: #ffecec;
+  border: 1px solid #ffb3b3;
+  border-radius: 6px;
+}
